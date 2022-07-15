@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
   <title>IN8 - Prova de Seleção Estágio</title>
   <!-- CSS  -->
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
+
 <body>
   <section id="presentation" class="white-text">
     <header>
@@ -18,7 +20,9 @@
           </a>
           <ul class="right hide-on-med-and-down">
             <li><a href="#">cadastro</a></li>
+            <div class="circle"></div>
             <li><a href="#">lista</a></li>
+            <div class="circle"></div>
             <li><a href="#">sobre mim</a></li>
           </ul>
           <ul id="nav-mobile" class="sidenav">
@@ -36,100 +40,94 @@
     </div>
   </section>
 
-  <!-- <div class="section no-pad-bot" id="index-banner">
-    <div class="container">
-      <br><br>
-      <h1 class="header center orange-text">Starter Template</h1>
-      <div class="row center">
-        <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
-      </div>
-      <div class="row center">
-        <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light orange">Get Started</a>
-      </div>
-      <br><br>
+  <section id="form-section" class="container class=white-text">
+    <h2>CADASTRO</h2>
 
+    <div>
+      <form class="col s12">
+
+        <div >
+          <div class="input-field col s6">
+            <input 
+            placeholder="Insira seu Nome" 
+            id="name" 
+            type="text" 
+            class="validate">
+            <label for="name" class="white-text">Name</label>
+          </div>
+
+        <div>
+          <div class="input-field col s6">
+            <input 
+            placeholder="Insira seu Email" 
+            id="email" 
+            type="text" 
+            class="validate white-text">
+            <label for="email" class="white-text">Email</label>
+          </div>
+
+        <div>
+          <div class="input-field col s6">
+            <input  
+            placeholder="xx/xx/xxxx" 
+            id="date" 
+            type="text" 
+            class="validate white-text">
+            <label for="date" class="white-text">Nascimento</label>
+          </div>
+
+          <div class="input-field col s6">
+            <input
+            placeholder="(xx) x xxxx-xxxx" 
+            id="phone" 
+            type="text" 
+            class="validate white-text">
+            <label for="date" class="white-text">Telefone</label>
+          </div>
+
+        </div>
+      </form>
     </div>
   </div>
+  <button id="add-button">Cadastrar</button>
+</section>
 
+<section id="table-section" class="container">
 
-  <div class="container">
-    <div class="section">
+  <h2>LISTA DE CADASTRO</h2>
 
- 
-      <div class="row">
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
-            <h5 class="center">Speeds up development</h5>
+  <table class="highlight centered responsive-table">
+    <tr id="tr-head">
+        <th class="id"></th>
+        <th class="title-table">NOME</th>
+        <th class="title-table">E-MAIL</th>
+        <th class="title-table">NASCIMENTO</th>
+        <th class="title-table">TELEFONE</th>
+    </tr>
 
-            <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
-          </div>
-        </div>
+    <tr class="tr-general">
+      <th class="id">1</th>
+        <th class="text-table">Vinícius de Paula Souza Silva</th>
+        <th class="text-table">dev.souzavinicius@gmail.com</th>
+        <th class="text-table">19/06/1997</th>
+        <th class="text-table">(31)982620927</th>
+    </tr>
+  </table>
+</section>
 
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
-            <h5 class="center">User Experience Focused</h5>
-
-            <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
-            <h5 class="center">Easy to work with</h5>
-
-            <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <br><br>
+<footer>
+  <div>
+    <h4>Vinícius de Paula Souza Silva</h4>
+    <h4>dev.souzavinicius@gmail.com</h4>
+    <h4>(31)982620927</h4>
+    <h4>Faculdade Newton Paiva</h4>
   </div>
-
-  <footer class="page-footer orange">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Company Bio</h5>
-          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
-
-
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Connect</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container">
-      Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
-      </div>
-    </div>
-  </footer> -->
-
-
+</footer>
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
 
-  </body>
+</body>
+
 </html>
