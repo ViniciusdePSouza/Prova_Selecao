@@ -1,5 +1,6 @@
+let index = 2;
 
-function openCity(evt, tableIndex) {
+function openCandidate(evt, tableIndex) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
@@ -13,41 +14,92 @@ function openCity(evt, tableIndex) {
   evt.currentTarget.className += " active";
 }
 
-const Form = {
-
-  name: document.querySelector('input#name'),
-  email: document.querySelector('input#email'),
-  date: document.querySelector('input#date'),
-  phone: document.querySelector('input#phone'),
-
-  getValues() {
-
-    return{
-      name: Form.name.value,
-      email: Form.email.value,
-      date: Form.date.value,
-      phone: Form.phone.value
-     }
-  },
-
-  validateFields() {
-    const { name, email, date, phone } = Form.getValues()
-
-    if(name.trim() === "" || email.trim() === "" || phone.trim() === ""){
-      throw new Error("Por Favor preencha todos os campos")
-    }
-  },
-
-  formatData() {
-
-  },
-  
-  submit (event) {
-    event.preventDefault();
-    try{
-      Form.validateFields()
-    } catch(e) {
-      alert(error.message)
-    }
+function newRegister() {
+  const candidate = {
+    name: document.getElementById('name').value,
+    email: document.getElementById('email').value,
+    date: document.getElementById('date').value,
+    phone: document.getElementById('phone').value
   }
+
+  addRegister(candidate);
+
+}
+
+function addTableRow() {
+  const tableBody = document.getElementById('tbody-web');
+
+  const tr = document.createElement('tr');
+  tr.innerHTML = `
+    <td id="index-${index}" class="index">${index}</th>
+    <td id="name-${index}" class="text-table"></td>
+    <td id="email-${index}" class="text-table"></td>
+    <td id="date-${index}" class="text-table"></td>
+    <td id="phone-${index}" class="text-table"></td>
+  `
+
+  tableBody.appendChild(tr);
+}
+
+// function addTab() {
+
+//   const div = document.createElement('div');
+//   div.id = `tab-${index}`;
+//   div.classList.add('tabcontent');
+
+//   div.innerHTML = `
+//     <table class="tab-table">
+//       <tbody class="body-tab">
+//         <tr class="tr-tab">
+//           <th>NOME</th>
+//           <th id="tab-name-${index}"></th>
+//           </tr>
+//         <tr class="tr-tab">
+//         <th>E-MAIL</th>
+//         <th id="tab-email-${index}"></th>
+//         </tr>
+//         <tr class="tr-tab">
+//           <th>NASC.</th>
+//           <th id="tab-date-${index}">/th>
+//           </tr>
+//         <tr class="tr-tab">
+//           <th>TEL.</th>
+//           <th id="tab-phone-${index}"></th>
+//         </tr>
+//       </tbody>
+//     </table>
+//   `;
+
+//   const tabButton = document.getElementById('tab-buttons');
+
+//   const button = document.createElement('button');
+//   button.classList.add('tablinks');
+//   // button.addEventListener('click', openCandidate(event, 'tab-${index}'));
+//   button.innerHTML = `${index}`;
+
+//   tabButton.appendChild(button);
+
+// }
+
+
+function addRegister(newCandidate) {
+  if (index > 4) {
+    addTableRow();
+    addTab();
+  }
+
+  document.getElementById(`name-${index}`).innerHTML = newCandidate.name;
+  document.getElementById(`email-${index}`).innerHTML = newCandidate.email;
+  document.getElementById(`date-${index}`).innerHTML = newCandidate.date;
+  document.getElementById(`phone-${index}`).innerHTML = newCandidate.phone;
+
+  //RESPONSIVE
+
+  document.getElementById(`tab-name-${index}`).innerHTML = newCandidate.name;
+  document.getElementById(`tab-email-${index}`).innerHTML = newCandidate.email;
+  document.getElementById(`tab-date-${index}`).innerHTML = newCandidate.date;
+  document.getElementById(`tab-phone-${index}`).innerHTML = newCandidate.phone;
+
+  index++;
+
 }

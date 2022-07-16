@@ -54,7 +54,7 @@
       <h2 class="center-align">CADASTRO</h2>
 
       <div id="div-form">
-        <form action="" onsubmit="Form.submit(event)">
+        <form onsubmit="event.preventDefault(); newRegister()">
           <div class="input-field col s12">
             <input placeholder="Insira seu Nome" id="name" type="text" class="validate">
             <label for="name" class="white-text">Name</label>
@@ -68,17 +68,19 @@
 
 
           <div class="input-field col s12">
-            <input placeholder="xx/xx/xxxx" id="date" type="text" class="validate white-text">
+            <input placeholder="xx/xx/xxxx" id="date" type="text" class="validate white-text" maxlength="8"
+              minlength="8">
             <label for="date" class="white-text">Nascimento</label>
           </div>
 
           <div class="input-field col s12">
-            <input placeholder="(xx) x xxxx-xxxx" id="phone" type="text" class="validate white-text">
+            <input placeholder="(xx) x xxxx-xxxx" id="phone" type="text" class="validate white-text" maxlength="11"
+              minlength="11">
             <label for="date" class="white-text">Telefone</label>
           </div>
 
           <div class="button-class">
-            <button id="add-button">CADASTRAR</button>
+            <button id="add-button" type="submit" >CADASTRAR</button>
           </div>
         </form>
       </div>
@@ -91,7 +93,7 @@
       <h2>LISTA DE CADASTRO</h2>
     </div>
     <div class="container">
-      <table class="centered responsive-table hide-on-small-only">
+      <table id="web-table" class="centered responsive-table hide-on-small-only">
         <thead>
           <tr id="tr-head">
             <th class="index"></th>
@@ -101,56 +103,138 @@
             <th class="title-table">TELEFONE</th>
           </tr>
         </thead>
-        <tbody>
-          <tr class="tr-general">
-            <th class="index">1</th>
-            <th class="text-table">Vinícius de Paula Souza Silva</th>
-            <th class="text-table">dev.souzavinicius@gmail.com</th>
-            <th class="text-table">19/06/1997</th>
-            <th class="text-table">(31)982620927</th>
+        <tbody id="tbody-web">
+          <tr>
+            <td class="index">1</th>
+            <td class="text-table">vini</td>
+            <td class="text-table">uhu@hfd</td>
+            <td class="text-table">13/52/2555</td>
+            <td class="text-table">31985432483</td>
           </tr>
+          <tr>
+            <td id="index-2" class="index">2</th>
+            <td id="name-2" class="text-table"></td>
+            <td id="email-2" class="text-table"></td>
+            <td id="date-2" class="text-table"></td>
+            <td id="phone-2" class="text-table"></td>
+          </tr>
+          <tr>
+            <td id="index-3" class="index">3</th>
+            <td id="name-3" class="text-table"></td>
+            <td id="email-3" class="text-table"></td>
+            <td id="date-3" class="text-table"></td>
+            <td id="phone-3" class="text-table"></td>
+          </tr>
+          <tr>
+            <td id="index-4" class="index">4</th>
+            <td id="name-4" class="text-table"></td>
+            <td id="email-4" class="text-table"></td>
+            <td id="date-4" class="text-table"></td>
+            <td id="phone-4" class="text-table"></td>
+          </tr>
+          
         </tbody>
       </table>
     </div>
 
     <div id="tab" class="container show-on-small hide-on-med-and-up">
-      <div class="tab">
-        <button class="tablinks" onclick="openCity(event, '1')">1</button>
-        <button class="tablinks" onclick="openCity(event, '2')">2</button>
-        <button class="tablinks" onclick="openCity(event, '3')">3</button>
-        <button class="tablinks" onclick="openCity(event, '4')">4</button>
+      <div id="tab-buttons" class="tab">
+        <button class="tablinks" onclick="openCandidate(event, 'tab-1')">1</button>
+        <button class="tablinks" onclick="openCandidate(event, 'tab-2')">2</button>
+        <button class="tablinks" onclick="openCandidate(event, 'tab-3')">3</button>
+        <button class="tablinks" onclick="openCandidate(event, 'tab-4')">4</button>
       </div>
 
-      <div id="1" class="tabcontent">
-        <table id="tab-table">
-          <tbody id="body-tab">
+      <div id="tab-1" class="tabcontent">
+        <table class="tab-table">
+          <tbody class="body-tab">
             <tr class="tr-tab">
               <th>NOME</th>
-              <th>VINÍCIUS DE PAULA SOUZA SILVA</th>
+              <th id="tab-name-1">VINÍCIUS DE PAULA SOUZA SILVA</th>
             </tr>
             <tr class="tr-tab">
               <th>E-MAIL</th>
-              <th>dev.souzavinicius@gmail.com</th>
+              <th id="tab-email-1">dev.souzavinicius@gmail.com</th>
             </tr>
             <tr class="tr-tab">
               <th>NASC.</th>
-              <th>19/06/1997</th>
+              <th id="tab-date-1">19/06/1997</th>
             </tr>
             <tr class="tr-tab">
               <th>TEL.</th>
-              <th>(31)982620927</th>
+              <th id="tab-phone-1">(31)982620927</th>
             </tr>
           </tbody>
-      </table>
+        </table>
       </div>
 
-      <div id="2" class="tabcontent">
+      <div id="tab-2" class="tabcontent">
+        <table class="tab-table">
+          <tbody class="body-tab">
+            <tr class="tr-tab">
+              <th>NOME</th>
+              <th id="tab-name-2"></th>
+            </tr>
+            <tr class="tr-tab">
+              <th>E-MAIL</th>
+              <th id="tab-email-2"></th>
+            </tr>
+            <tr class="tr-tab">
+              <th>NASC.</th>
+              <th id="tab-date-2"></th>
+            </tr>
+            <tr class="tr-tab">
+              <th>TEL.</th>
+              <th id="tab-phone-2"></th>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
-      <div id="3" class="tabcontent">
+      <div id="tab-3" class="tabcontent">
+        <table class="tab-table">
+          <tbody class="body-tab">
+            <tr class="tr-tab">
+              <th>NOME</th>
+              <th id="tab-name-3"></th>
+            </tr>
+            <tr class="tr-tab">
+              <th>E-MAIL</th>
+              <th id="tab-email-3"></th>
+            </tr>
+            <tr class="tr-tab">
+              <th>NASC.</th>
+              <th id="tab-date-3"></th>
+            </tr>
+            <tr class="tr-tab">
+              <th>TEL.</th>
+              <th id="tab-phone-3"></th>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      
-      <div id="4" class="tabcontent">
+
+      <div id="tab-4" class="tabcontent">
+        <table class="tab-table">
+          <tbody class="body-tab">
+            <tr class="tr-tab">
+              <th>NOME</th>
+              <th id="tab-name-4"></th>
+            </tr>
+            <tr class="tr-tab">
+              <th>E-MAIL</th>
+              <th id="tab-email-4"></th>
+            </tr>
+            <tr class="tr-tab">
+              <th>NASC.</th>
+              <th id="tab-date-4"></th>
+            </tr>
+            <tr class="tr-tab">
+              <th>TEL.</th>
+              <th id="tab-phone-4"></th>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
@@ -169,7 +253,6 @@
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
   <script src="js/script.js"></script>
-  <script src="js/scripts_table.js"></script>
 
 </body>
 
