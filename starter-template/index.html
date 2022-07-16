@@ -8,6 +8,11 @@
   <!-- CSS  -->
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,300;0,600;1,100;1,300;1,600&family=Poppins:wght@100;200&family=Rajdhani:wght@400;500;600&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
@@ -19,114 +24,152 @@
             <img src="./src/images/logo-in8-dev.svg" alt="Logo IN8" width="85px" height="50px">
           </a>
           <ul class="right hide-on-med-and-down">
-            <li><a href="#">cadastro</a></li>
+            <li><a href="#form-section">cadastro</a></li>
             <div class="circle"></div>
-            <li><a href="#">lista</a></li>
+            <li><a href="#table-section">lista</a></li>
             <div class="circle"></div>
-            <li><a href="#">sobre mim</a></li>
+            <li><a href="#about">sobre mim</a></li>
           </ul>
-          <ul id="nav-mobile" class="sidenav">
-            <li><a href="#">cadastro</a></li>
-            <li><a href="#">lista</a></li>
-            <li><a href="#">sobre mim</a></li>
-          </ul>
-          <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <div id="nav-mobile01">
+            <ul id="nav-mobile" class="sidenav white-text mobile-container">
+              <img id="hamburguer" src="./src/icons/hamburguer-aberto0.svg" alt="Menu" width="30px" height="30px">
+              <li><a class="white-text" href="#form-section">cadastro</a></li>
+              <li><a class="white-text" href="#table-section">lista</a></li>
+              <li><a class="white-text" href="#about">sobre mim</a></li>
+            </ul>
+          </div>
+          <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons"> <img
+                src="./src/icons/hamburguer.svg" alt="menu" width="30px" height="30px"></i></a>
         </div>
       </nav>
     </header>
-    <div class="container">
+    <div id="main-title" class="container">
       <h1>ESTÁGIO</h1>
       <h2>PROVA SELEÇÃO</h2>
     </div>
   </section>
 
-  <section id="form-section" class="container class=white-text">
-    <h2>CADASTRO</h2>
+  <section id="form-section" class="white-text">
+    <div class="container">
+      <h2 class="center-align">CADASTRO</h2>
 
-    <div>
-      <form class="col s12">
-
-        <div >
-          <div class="input-field col s6">
-            <input 
-            placeholder="Insira seu Nome" 
-            id="name" 
-            type="text" 
-            class="validate">
+      <div id="div-form">
+        <form action="" onsubmit="Form.submit(event)">
+          <div class="input-field col s12">
+            <input placeholder="Insira seu Nome" id="name" type="text" class="validate">
             <label for="name" class="white-text">Name</label>
           </div>
 
-        <div>
-          <div class="input-field col s6">
-            <input 
-            placeholder="Insira seu Email" 
-            id="email" 
-            type="text" 
-            class="validate white-text">
+
+          <div class="input-field col s12">
+            <input placeholder="Insira seu Email" id="email" type="text" class="validate white-text">
             <label for="email" class="white-text">Email</label>
           </div>
 
-        <div>
-          <div class="input-field col s6">
-            <input  
-            placeholder="xx/xx/xxxx" 
-            id="date" 
-            type="text" 
-            class="validate white-text">
+
+          <div class="input-field col s12">
+            <input placeholder="xx/xx/xxxx" id="date" type="text" class="validate white-text">
             <label for="date" class="white-text">Nascimento</label>
           </div>
 
-          <div class="input-field col s6">
-            <input
-            placeholder="(xx) x xxxx-xxxx" 
-            id="phone" 
-            type="text" 
-            class="validate white-text">
+          <div class="input-field col s12">
+            <input placeholder="(xx) x xxxx-xxxx" id="phone" type="text" class="validate white-text">
             <label for="date" class="white-text">Telefone</label>
           </div>
 
-        </div>
-      </form>
+          <div class="button-class">
+            <button id="add-button">CADASTRAR</button>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
-  <button id="add-button">Cadastrar</button>
-</section>
 
-<section id="table-section" class="container">
+  </section>
 
-  <h2>LISTA DE CADASTRO</h2>
+  <section id="table-section">
+    <div id="title-table">
+      <h2>LISTA DE CADASTRO</h2>
+    </div>
+    <div class="container">
+      <table class="centered responsive-table hide-on-small-only">
+        <thead>
+          <tr id="tr-head">
+            <th class="index"></th>
+            <th class="title-table">NOME</th>
+            <th class="title-table">E-MAIL</th>
+            <th class="title-table">NASCIMENTO</th>
+            <th class="title-table">TELEFONE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="tr-general">
+            <th class="index">1</th>
+            <th class="text-table">Vinícius de Paula Souza Silva</th>
+            <th class="text-table">dev.souzavinicius@gmail.com</th>
+            <th class="text-table">19/06/1997</th>
+            <th class="text-table">(31)982620927</th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-  <table class="highlight centered responsive-table">
-    <tr id="tr-head">
-        <th class="id"></th>
-        <th class="title-table">NOME</th>
-        <th class="title-table">E-MAIL</th>
-        <th class="title-table">NASCIMENTO</th>
-        <th class="title-table">TELEFONE</th>
-    </tr>
+    <div id="tab" class="container show-on-small hide-on-med-and-up">
+      <div class="tab">
+        <button class="tablinks" onclick="openCity(event, '1')">1</button>
+        <button class="tablinks" onclick="openCity(event, '2')">2</button>
+        <button class="tablinks" onclick="openCity(event, '3')">3</button>
+        <button class="tablinks" onclick="openCity(event, '4')">4</button>
+      </div>
 
-    <tr class="tr-general">
-      <th class="id">1</th>
-        <th class="text-table">Vinícius de Paula Souza Silva</th>
-        <th class="text-table">dev.souzavinicius@gmail.com</th>
-        <th class="text-table">19/06/1997</th>
-        <th class="text-table">(31)982620927</th>
-    </tr>
-  </table>
-</section>
+      <div id="1" class="tabcontent">
+        <table id="tab-table">
+          <tbody id="body-tab">
+            <tr class="tr-tab">
+              <th>NOME</th>
+              <th>VINÍCIUS DE PAULA SOUZA SILVA</th>
+            </tr>
+            <tr class="tr-tab">
+              <th>E-MAIL</th>
+              <th>dev.souzavinicius@gmail.com</th>
+            </tr>
+            <tr class="tr-tab">
+              <th>NASC.</th>
+              <th>19/06/1997</th>
+            </tr>
+            <tr class="tr-tab">
+              <th>TEL.</th>
+              <th>(31)982620927</th>
+            </tr>
+          </tbody>
+      </table>
+      </div>
 
-<footer>
-  <div>
-    <h4>Vinícius de Paula Souza Silva</h4>
-    <h4>dev.souzavinicius@gmail.com</h4>
-    <h4>(31)982620927</h4>
-    <h4>Faculdade Newton Paiva</h4>
-  </div>
-</footer>
+      <div id="2" class="tabcontent">
+      </div>
+
+      <div id="3" class="tabcontent">
+      </div>
+      
+      <div id="4" class="tabcontent">
+      </div>
+    </div>
+
+  </section>
+
+  <footer id="about">
+    <div class="about-me">
+      <h4>Vinícius de Paula Souza Silva</h4>
+      <h4>dev.souzavinicius@gmail.com</h4>
+      <h4>(31)982620927</h4>
+      <h4>Faculdade Newton Paiva</h4>
+    </div>
+  </footer>
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/scripts_table.js"></script>
 
 </body>
 

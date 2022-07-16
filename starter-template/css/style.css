@@ -26,19 +26,33 @@
   src: url(../src/fonts/RobotoRegular.ttf);
 }
 
-h1, h2, button {
-  font-family: helvetica-ultralight;
+html {
+  scroll-behavior: smooth;
 }
 
+h1, h2, button {
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+  background-color: var(--primary-color);
+}
+
+h1{
+  font-weight: 200;
+}
+h2{
+  font-weight:100;
+}
 /* ------------------------ PRESENTATION -------------------------------- */
 
 #presentation {
   width: 100%;
-  height: 80vh;
+  height: 100vh;
 
   background-image: url(../src/images/index-image.jpg);
   background-size: cover;
-  background-position: bottom;
+  background-position: center;
 
 }
 
@@ -50,6 +64,14 @@ ul{
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+li{
+  opacity: 0.7;
+}
+
+li:hover {
+  opacity: 1;
 }
 
 .circle {
@@ -64,6 +86,42 @@ ul{
   border: none;
 }
 
+#main-title{
+  padding: 6rem;
+}
+
+/* -------------------------------- Menu mobile -------------------------------------- */
+
+.mobile-container {
+  width: 80%;
+  height: 100%;
+}
+
+#hamburguer{
+  margin:24px 0 60px 32px;
+}
+
+#nav-mobile{
+  width: 60%;
+  max-width: 300px;
+  height: 60%;
+  max-height: 330px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+ 
+  background-color: var(--primary-color);
+
+}
+
+.sidenav li > a {
+  font-family: roboto-regular;
+  font-size: 24px;
+  font-weight: lighter;
+}
+
+
 /* -------------------------------- FORM -------------------------------------- */
 
 #form-section{
@@ -71,29 +129,45 @@ ul{
   color: var(--white);
 
   width: 100%;
-  height: 80vh;
+  min-height: 85vh;
+  height: 100%;
 
+  /* display: flex;
+  flex-direction: column;*/
+  align-items: center; 
+
+}
+
+.button-class {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-
+  justify-content: center;
 }
 
 #form-section label{
   width: 100%;
-
   font-family: roboto-regular;
 }
 
-#form-section input{
+#div-form{
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+}
+
+form{
+  max-width: 640px;
   width: 100%;
-  height: 100;
+}
+
+input{
+  width: 100%;
   font-family: helvetica-condensed;
+  color: var(--white);
 }
 
 button {
-  font-family: helvetica-ultralight;
   font-size: 40px;
+  font-weight: 100;
 
   width: 300px;
   height: 50px;
@@ -102,14 +176,29 @@ button {
   color: var(--primary-color);
 
   border: none;
+
+  margin-top: 48px;
 }
 
 /* -------------------------------- TABLE -------------------------------------- */
+#table-section{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 #table-section{
+  width: 100%;
+  min-height: 65vh;
+  height: 100%;
+
   display:flex;
   flex-direction: column;
   align-items:center;
+
+  background-color: var(--white);
+
+  padding-bottom: 3rem 0;
 }
 
 #table-section h2 {
@@ -119,6 +208,16 @@ button {
 table{
   margin-top:5rem;
   margin-bottom: 5rem;
+}
+
+tr:last-child{
+  border-bottom:none;
+}
+
+th{
+  justify-content: center;
+  align-items: center;
+  border:none;
 }
 
 .title-table {
@@ -136,18 +235,76 @@ table{
 }
 
 .tr-general {
-  border-top: solid 1px var(--primary-color);
+  border-top: solid 1.1px rgb(41, 171, 226, 0.5);
 }
 
  th{
-  border-left: solid 1px var(--primary-color);
+  border-left: solid 1px rgb(41, 171, 226, 0.5);
 }
 
-.id {
+
+.index {
   border-left: none;
+  padding: 16px 28px;
+  
+  font-weight: 400;
+  font-size:18px;
+  color: var(--secundary-color);
 }
 
-/* -------------------------------- TABLE -------------------------------------- */
+
+/* -------------------------------- TAB -------------------------------------- */
+.tab {
+  display:flex;
+  overflow: hidden;
+}
+
+.tr-tab{
+  border-bottom: 2px solid var(--primary-color);
+}
+
+#tab-table{
+  width: 100%;
+  height: 100%;
+}
+
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: white;
+  color: var(--primary-color);
+  font-weight: bold;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+#body-tab{
+  border: 2px solid var(--primary-color)
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  color: var(--secundary-color);
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  color: var(--secundary-color);
+  border: solid 2px var(--primary-color);
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border-top: none;
+}
+
+/* -------------------------------- FOOTTER -------------------------------------- */
 
 footer{
   width: 100%;
@@ -161,6 +318,7 @@ footer{
   background-image: url(../src/images/rodape-desktop.jpg);
   background-size: cover;
   background-position: bottom;
+
 }
 
 h4 {
@@ -169,8 +327,14 @@ h4 {
   font-size: 16px;
 
   color: var(--white);
+
 }
 
 footer div {
   padding-top: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
