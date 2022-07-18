@@ -23,3 +23,5 @@
  Espero que tenham ficados satisfeitos o projeto fruto de muita pesquisa, estudo e prática
  
  Desde já, deixo meus cumprimentos e agradecimentos à toda equipe da IN8 pela oportunidade de dar o primeiro passo ruma ao meu futuro!
+ 
+ <img src="https://c.tenor.com/ytNCDNZ__jIAAAAM/yoda.gif" width="100px" height="100px">
