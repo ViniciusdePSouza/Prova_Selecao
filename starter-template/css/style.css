@@ -54,7 +54,6 @@ h2{
   background-image: url(../src/images/index-image.jpg);
   background-size: cover;
   background-position: 55% 25%;
-
 }
 
 img{
@@ -126,8 +125,6 @@ li:hover {
   font-size: 24px;
   font-weight: lighter;
 }
-
-
 /* -------------------------------- FORM -------------------------------------- */
 
 #form-section{
@@ -138,8 +135,6 @@ li:hover {
   min-height: 85vh;
   height: 100%;
 
-  /* display: flex;
-  flex-direction: column;*/
   align-items: center; 
 
 }
@@ -276,7 +271,6 @@ tr{
   border-left: solid 1px rgb(41, 171, 226, 0.5);
 }
 
-
 .index {
   border-left: none;
   padding: 16px 28px;
@@ -285,7 +279,6 @@ tr{
   font-size:18px;
   color: var(--secundary-color);
 }
-
 
 /* -------------------------------- TAB -------------------------------------- */
 .tab {
@@ -302,8 +295,6 @@ tr{
   height: 100%;
 }
 
-
-/* Style the buttons inside the tab */
 .tab button {
   background-color: white;
   color: var(--primary-color);
@@ -320,18 +311,15 @@ tr{
   border: 2px solid var(--primary-color)
 }
 
-/* Change background color of buttons on hover */
 .tab button:hover {
   color: var(--secundary-color);
 }
 
-/* Create an active/current tablink class */
 .tab button.active {
   color: var(--secundary-color);
   border: solid 2px var(--primary-color);
 }
 
-/* Style the tab content */
 .tabcontent {
   display: none;
   border-top: none;
@@ -351,7 +339,6 @@ footer{
   background-image: url(../src/images/rodape-desktop.jpg);
   background-size: cover;
   background-position: bottom;
-
 }
 
 h4 {
@@ -360,7 +347,6 @@ h4 {
   font-size: 16px;
 
   color: var(--white);
-
 }
 
 footer div {

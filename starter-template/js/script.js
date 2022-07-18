@@ -1,7 +1,6 @@
 let index = 2;
 let indexResponsive = 2;
 
-
 function openCandidate(evt, tableIndex) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
@@ -17,8 +16,6 @@ function openCandidate(evt, tableIndex) {
 }
 
 function newRegister() {
-  
-  
   const candidate = {
     name: document.getElementById('name').value,
     email: document.getElementById('email').value,
@@ -34,7 +31,6 @@ function newRegister() {
 }
 
 const Form = {
-
   validateFields(candidateValidate) {
     if (candidateValidate.name.trim() === "" || candidateValidate.email.trim() === "" || candidateValidate.date.trim() === "" || candidateValidate.phone.trim() === "") {
       throw new Error("Por favor, preencha todos os dados")
@@ -52,59 +48,57 @@ function addTableRow() {
     <td id="email-${index}" class="text-table"></td>
     <td id="date-${index}" class="text-table"></td>
     <td id="phone-${index}" class="text-table"></td>
-  `
-
+  `;
   tableBody.appendChild(tr);
 }
 
-// function addButton() {
-//   const div = document.getElementById('tab-buttons');
+function addButton() {
+  const div = document.getElementById('tab-buttons');
 
-//   const button = document.createElement('button');
-//   button.classList.add('tablinks')
+  const button = document.createElement('button');
+  button.classList.add('tablinks')
   
-//   button.innerHTML = `<button onclick="openCandidate(event, 'tab-${indexResponsive}')">${indexResponsive}</button>`
+  button.innerHTML = `<button onclick="openCandidate(event, 'tab-${indexResponsive}')">${indexResponsive}</button>`
 
-//   div.appendChild(button);
-// }
+  div.appendChild(button);
+}
 
-// function addTabTable() {
-//   const div = document.getElementById('tab');
+function addTabTable() {
+  const div = document.getElementById('tab');
 
-//   const divtab = document.createElement('div');
-//   divtab.id = `tab-${indexResponsive}`
-//   divtab.classList.add("tabcontent")
+  const divtab = document.createElement('div');
+  divtab.id = `tab-${indexResponsive}`
+  divtab.classList.add("tabcontent")
 
-//   div.innerHTML = `
-//       <table class="tab-table">
-//         <tbody class="body-tab">
-//             <tr class="tr-tab">
-//               <th>NOME</th>
-//               <th id="tab-name-${indexResponsive}"></th>
-//             </tr>
-//             <tr class="tr-tab">
-//                 <th>E-MAIL</th>
-//                  <th id="tab-email-${indexResponsive}"></th>
-//             </tr>
-//               <tr class="tr-tab">
-//                 <th>NASC.</th>
-//                 <th id="tab-date-${indexResponsive}"></th>
-//                 </tr>
-//               <tr class="tr-tab">
-//                 <th>TEL.</th>
-//                 <th id="tab-phone-${indexResponsive}"></th>
-//               </tr>
-//         </tbody>
-//       </table>
-//   `
-// }
+  div.innerHTML = `
+      <table class="tab-table">
+        <tbody class="body-tab">
+            <tr class="tr-tab">
+              <th>NOME</th>
+              <th id="tab-name-${indexResponsive}"></th>
+            </tr>
+            <tr class="tr-tab">
+                <th>E-MAIL</th>
+                 <th id="tab-email-${indexResponsive}"></th>
+            </tr>
+              <tr class="tr-tab">
+                <th>NASC.</th>
+                <th id="tab-date-${indexResponsive}"></th>
+                </tr>
+              <tr class="tr-tab">
+                <th>TEL.</th>
+                <th id="tab-phone-${indexResponsive}"></th>
+              </tr>
+        </tbody>
+      </table>
+  `;
+}
 
 
 function addRegister(newCandidate) {
   if (index > 4) {
     addTableRow();
-    // addButton();
-
+    addButton();
   }
 
   document.getElementById(`name-${index}`).innerHTML = newCandidate.name;
