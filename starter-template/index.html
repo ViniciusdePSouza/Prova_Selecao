@@ -71,8 +71,10 @@
             <input 
               placeholder="Selecione sua data de nascimento" 
               id="date" 
-              type="date" 
+              type="text" 
               class="validate white-text" 
+              maxlength="10"
+              onkeypress="dateMask(this)"
               >
             <label for="date" class="white-text">Nascimento</label>
           </div>
@@ -81,8 +83,10 @@
             <input 
               placeholder="Insira o seu telefone (xx)xxxxx-xxxx" 
               id="phone" 
-              type="tel" 
+              type="text" 
               class="validate white-text" 
+              onkeypress="phoneMask(this, mphone);"
+              onblur="phoneMask(this, mphone);"
               >
             <label for="date" class="white-text">Telefone</label>
           </div>
@@ -261,8 +265,8 @@
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
   <script src="js/script.js"></script>
-  <script scr="//http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script scr="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+  <script src="js/masks.js"></script>
+
 </body>
 
 </html>

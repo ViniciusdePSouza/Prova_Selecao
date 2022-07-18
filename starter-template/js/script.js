@@ -17,30 +17,20 @@ function openCandidate(evt, tableIndex) {
 }
 
 function newRegister() {
+  
+  
   const candidate = {
     name: document.getElementById('name').value,
     email: document.getElementById('email').value,
     date: document.getElementById('date').value,
     phone: document.getElementById('phone').value
   }
-
   try {
     Form.validateFields(candidate);
     addRegister(candidate);
-    // try{
-    //   Form.formatDate(candidate);
-    //   // Form.formatPhone(candidate);
-
-
-    // } catch(e){
-    //   alert(error.message);
-    // }
   } catch (error) {
     alert(error.message);
   }
-
-
-
 }
 
 const Form = {
@@ -50,14 +40,6 @@ const Form = {
       throw new Error("Por favor, preencha todos os dados")
     }
   },
-
-  formatDate(format){
-    format.date.value = text.replace("-" , "/")
-  },
-
-  // formatPhone(format){
-  //   $(`${format.date}`).mask("(99)99999 9999")
-  // }
 }
 
 function addTableRow() {
@@ -75,53 +57,53 @@ function addTableRow() {
   tableBody.appendChild(tr);
 }
 
-function addButton() {
-  const div = document.getElementById('tab-buttons');
+// function addButton() {
+//   const div = document.getElementById('tab-buttons');
 
-  const button = document.createElement('button');
-  button.classList.add('tablinks')
+//   const button = document.createElement('button');
+//   button.classList.add('tablinks')
   
-  button.innerHTML = `<button onclick="openCandidate(event, 'tab-${indexResponsive}')">${indexResponsive}</button>`
+//   button.innerHTML = `<button onclick="openCandidate(event, 'tab-${indexResponsive}')">${indexResponsive}</button>`
 
-  div.appendChild(button);
-}
+//   div.appendChild(button);
+// }
 
-function addTabTable() {
-  const div = document.getElementById('tab');
+// function addTabTable() {
+//   const div = document.getElementById('tab');
 
-  const divtab = document.createElement('div');
-  divtab.id = `tab-${indexResponsive}`
-  divtab.classList.add("tabcontent")
+//   const divtab = document.createElement('div');
+//   divtab.id = `tab-${indexResponsive}`
+//   divtab.classList.add("tabcontent")
 
-  div.innerHTML = `
-      <table class="tab-table">
-        <tbody class="body-tab">
-            <tr class="tr-tab">
-              <th>NOME</th>
-              <th id="tab-name-${indexResponsive}"></th>
-            </tr>
-            <tr class="tr-tab">
-                <th>E-MAIL</th>
-                 <th id="tab-email-${indexResponsive}"></th>
-            </tr>
-              <tr class="tr-tab">
-                <th>NASC.</th>
-                <th id="tab-date-${indexResponsive}"></th>
-                </tr>
-              <tr class="tr-tab">
-                <th>TEL.</th>
-                <th id="tab-phone-${indexResponsive}"></th>
-              </tr>
-        </tbody>
-      </table>
-  `
-}
+//   div.innerHTML = `
+//       <table class="tab-table">
+//         <tbody class="body-tab">
+//             <tr class="tr-tab">
+//               <th>NOME</th>
+//               <th id="tab-name-${indexResponsive}"></th>
+//             </tr>
+//             <tr class="tr-tab">
+//                 <th>E-MAIL</th>
+//                  <th id="tab-email-${indexResponsive}"></th>
+//             </tr>
+//               <tr class="tr-tab">
+//                 <th>NASC.</th>
+//                 <th id="tab-date-${indexResponsive}"></th>
+//                 </tr>
+//               <tr class="tr-tab">
+//                 <th>TEL.</th>
+//                 <th id="tab-phone-${indexResponsive}"></th>
+//               </tr>
+//         </tbody>
+//       </table>
+//   `
+// }
 
 
 function addRegister(newCandidate) {
   if (index > 4) {
     addTableRow();
-    addButton();
+    // addButton();
 
   }
 
