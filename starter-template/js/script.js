@@ -21,9 +21,43 @@ function newRegister() {
     date: document.getElementById('date').value,
     phone: document.getElementById('phone').value
   }
+  
+  try{
+    Form.validateFields(candidate);
+    Form.formatDate(candidate);
+    Form.formatPhone(candidate);
+   
+    addRegister(candidate);
 
-  addRegister(candidate);
+  } catch(error){
+    alert(error.message);
+  }
 
+
+
+}
+
+const Form = {
+  
+  validateFields(candidateValidate){
+      if(candidateValidate.name.trim() === "" || candidateValidate.email.trim() === "" || candidateValidate.date.trim() === "" || candidateValidate.phone.trim() === "") {
+      throw new Error("Por favor, preencha todos os dados")
+    } 
+  },
+
+  formatDate(format){
+    date = format.date
+    arrayDate = date.split("")
+
+    return `${arrayDate[1]} ${arrayDate[2]} / ${arrayDate[3]} ${arrayDate[4]} / ${arrayDate[5]} ${arrayDate[6]} ${arrayDate[7]} ${arrayDate[8]}` 
+  },
+
+  formatPhone(format){
+    phone = format.phone
+    arrayPhone = phone.split("")
+
+    return `(${arrayPhone[1]} ${arrayPhone[2]}) ${arrayPhone[3]} ${arrayPhone[4]} ${arrayPhone[5]} ${arrayPhone[6]} ${arrayPhone[7]} ${arrayPhone[8]} ${arrayPhone[9]} ${arrayPhone[10]} ${arrayPhone[11]}`
+  }
 }
 
 function addTableRow() {
@@ -41,51 +75,10 @@ function addTableRow() {
   tableBody.appendChild(tr);
 }
 
-// function addTab() {
-
-//   const div = document.createElement('div');
-//   div.id = `tab-${index}`;
-//   div.classList.add('tabcontent');
-
-//   div.innerHTML = `
-//     <table class="tab-table">
-//       <tbody class="body-tab">
-//         <tr class="tr-tab">
-//           <th>NOME</th>
-//           <th id="tab-name-${index}"></th>
-//           </tr>
-//         <tr class="tr-tab">
-//         <th>E-MAIL</th>
-//         <th id="tab-email-${index}"></th>
-//         </tr>
-//         <tr class="tr-tab">
-//           <th>NASC.</th>
-//           <th id="tab-date-${index}">/th>
-//           </tr>
-//         <tr class="tr-tab">
-//           <th>TEL.</th>
-//           <th id="tab-phone-${index}"></th>
-//         </tr>
-//       </tbody>
-//     </table>
-//   `;
-
-//   const tabButton = document.getElementById('tab-buttons');
-
-//   const button = document.createElement('button');
-//   button.classList.add('tablinks');
-//   // button.addEventListener('click', openCandidate(event, 'tab-${index}'));
-//   button.innerHTML = `${index}`;
-
-//   tabButton.appendChild(button);
-
-// }
-
 
 function addRegister(newCandidate) {
   if (index > 4) {
     addTableRow();
-    addTab();
   }
 
   document.getElementById(`name-${index}`).innerHTML = newCandidate.name;
@@ -93,13 +86,12 @@ function addRegister(newCandidate) {
   document.getElementById(`date-${index}`).innerHTML = newCandidate.date;
   document.getElementById(`phone-${index}`).innerHTML = newCandidate.phone;
 
-  //RESPONSIVE
+  index++;
+  // RESPONSIVE 
 
   document.getElementById(`tab-name-${index}`).innerHTML = newCandidate.name;
   document.getElementById(`tab-email-${index}`).innerHTML = newCandidate.email;
   document.getElementById(`tab-date-${index}`).innerHTML = newCandidate.date;
   document.getElementById(`tab-phone-${index}`).innerHTML = newCandidate.phone;
-
-  index++;
 
 }

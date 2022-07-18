@@ -43,6 +43,7 @@ h1{
 }
 h2{
   font-weight:100;
+  font-size: 40px;
 }
 /* ------------------------ PRESENTATION -------------------------------- */
 
@@ -52,7 +53,7 @@ h2{
 
   background-image: url(../src/images/index-image.jpg);
   background-size: cover;
-  background-position: center;
+  background-position: 55% 25%;
 
 }
 
@@ -88,9 +89,13 @@ li:hover {
 }
 
 #main-title{
-  padding: 6rem;
+  padding: 2.5rem;
+  margin-top: 32px;
 }
 
+.main-title  {
+  margin: 0;
+}
 /* -------------------------------- Menu mobile -------------------------------------- */
 
 .mobile-container {
@@ -181,6 +186,21 @@ button {
   margin-top: 48px;
 
   cursor: pointer;
+
+  box-shadow: none;
+
+  transition-property: width, height, box-shadow; 
+  transition-duration: 0.2s 
+}
+
+button:hover {
+  transition-property: width, height, box-shadow;
+  transition-duration: 0.2s;
+
+  width: 310px;
+  height: 60px;
+
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, .7);
 }
 
 /* -------------------------------- TABLE -------------------------------------- */
