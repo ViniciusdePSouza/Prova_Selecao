@@ -1,4 +1,6 @@
 let index = 2;
+let indexResponsive = 2;
+
 
 function openCandidate(evt, tableIndex) {
   var i, tabcontent, tablinks;
@@ -21,15 +23,19 @@ function newRegister() {
     date: document.getElementById('date').value,
     phone: document.getElementById('phone').value
   }
-  
-  try{
-    Form.validateFields(candidate);
-    Form.formatDate(candidate);
-    Form.formatPhone(candidate);
-   
-    addRegister(candidate);
 
-  } catch(error){
+  try {
+    Form.validateFields(candidate);
+    addRegister(candidate);
+    // try{
+    //   Form.formatDate(candidate);
+    //   // Form.formatPhone(candidate);
+
+
+    // } catch(e){
+    //   alert(error.message);
+    // }
+  } catch (error) {
     alert(error.message);
   }
 
@@ -38,26 +44,20 @@ function newRegister() {
 }
 
 const Form = {
-  
-  validateFields(candidateValidate){
-      if(candidateValidate.name.trim() === "" || candidateValidate.email.trim() === "" || candidateValidate.date.trim() === "" || candidateValidate.phone.trim() === "") {
+
+  validateFields(candidateValidate) {
+    if (candidateValidate.name.trim() === "" || candidateValidate.email.trim() === "" || candidateValidate.date.trim() === "" || candidateValidate.phone.trim() === "") {
       throw new Error("Por favor, preencha todos os dados")
-    } 
+    }
   },
 
   formatDate(format){
-    date = format.date
-    arrayDate = date.split("")
-
-    return `${arrayDate[1]} ${arrayDate[2]} / ${arrayDate[3]} ${arrayDate[4]} / ${arrayDate[5]} ${arrayDate[6]} ${arrayDate[7]} ${arrayDate[8]}` 
+    format.date.value = text.replace("-" , "/")
   },
 
-  formatPhone(format){
-    phone = format.phone
-    arrayPhone = phone.split("")
-
-    return `(${arrayPhone[1]} ${arrayPhone[2]}) ${arrayPhone[3]} ${arrayPhone[4]} ${arrayPhone[5]} ${arrayPhone[6]} ${arrayPhone[7]} ${arrayPhone[8]} ${arrayPhone[9]} ${arrayPhone[10]} ${arrayPhone[11]}`
-  }
+  // formatPhone(format){
+  //   $(`${format.date}`).mask("(99)99999 9999")
+  // }
 }
 
 function addTableRow() {
@@ -75,23 +75,68 @@ function addTableRow() {
   tableBody.appendChild(tr);
 }
 
+function addButton() {
+  const div = document.getElementById('tab-buttons');
+
+  const button = document.createElement('button');
+  button.classList.add('tablinks')
+  
+  button.innerHTML = `<button onclick="openCandidate(event, 'tab-${indexResponsive}')">${indexResponsive}</button>`
+
+  div.appendChild(button);
+}
+
+function addTabTable() {
+  const div = document.getElementById('tab');
+
+  const divtab = document.createElement('div');
+  divtab.id = `tab-${indexResponsive}`
+  divtab.classList.add("tabcontent")
+
+  div.innerHTML = `
+      <table class="tab-table">
+        <tbody class="body-tab">
+            <tr class="tr-tab">
+              <th>NOME</th>
+              <th id="tab-name-${indexResponsive}"></th>
+            </tr>
+            <tr class="tr-tab">
+                <th>E-MAIL</th>
+                 <th id="tab-email-${indexResponsive}"></th>
+            </tr>
+              <tr class="tr-tab">
+                <th>NASC.</th>
+                <th id="tab-date-${indexResponsive}"></th>
+                </tr>
+              <tr class="tr-tab">
+                <th>TEL.</th>
+                <th id="tab-phone-${indexResponsive}"></th>
+              </tr>
+        </tbody>
+      </table>
+  `
+}
+
 
 function addRegister(newCandidate) {
   if (index > 4) {
     addTableRow();
+    addButton();
+
   }
 
   document.getElementById(`name-${index}`).innerHTML = newCandidate.name;
   document.getElementById(`email-${index}`).innerHTML = newCandidate.email;
   document.getElementById(`date-${index}`).innerHTML = newCandidate.date;
   document.getElementById(`phone-${index}`).innerHTML = newCandidate.phone;
-
+  
   index++;
   // RESPONSIVE 
 
-  document.getElementById(`tab-name-${index}`).innerHTML = newCandidate.name;
-  document.getElementById(`tab-email-${index}`).innerHTML = newCandidate.email;
-  document.getElementById(`tab-date-${index}`).innerHTML = newCandidate.date;
-  document.getElementById(`tab-phone-${index}`).innerHTML = newCandidate.phone;
+  document.getElementById(`tab-name-${indexResponsive}`).innerHTML = newCandidate.name;
+  document.getElementById(`tab-email-${indexResponsive}`).innerHTML = newCandidate.email;
+  document.getElementById(`tab-date-${indexResponsive}`).innerHTML = newCandidate.date;
+  document.getElementById(`tab-phone-${indexResponsive}`).innerHTML = newCandidate.phone;
 
+  indexResponsive++;
 }
